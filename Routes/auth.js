@@ -14,6 +14,7 @@ router.get("/user", (req, res, next) => {
 
 //This route is to post new user info
 router.post("/signup", (req, res) => {
+  console.log("in auth: ", req);
   const { username, password } = req.body;
   User.findOne({ "local.username": username }, (err, userMatch) => {
     if (userMatch) {

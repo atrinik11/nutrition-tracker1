@@ -1,7 +1,7 @@
 const express = require("express");
 const path = require("path");
 const bodyParser = require("body-parser");
-const PORT = process.env.PORT || 8001;
+const PORT = process.env.PORT || 3001;
 const app = express();
 const cookieParser = require("cookie-parser");
 const mongoose = require("mongoose");
@@ -9,6 +9,8 @@ const session = require("express-session");
 const passport = require("passport");
 const MongoStore = require("connect-mongo")(session);
 const morgan = require("morgan");
+const apiRoutes = require("./Routes/apiRoutes");
+const auth = require("./Routes/auth");
 
 let MONGO_URL;
 const MONGO_LOCAL_URL =
@@ -58,6 +60,11 @@ app.use(
 //Passport
 app.use(passport.initialize());
 app.use(passport.session());
+
+//routes
+app.use("/", apiRoutes);
+app.use("", apiRoutes);
+app.use("/auth", auth);
 
 //Port listening
 app.listen(PORT, function() {

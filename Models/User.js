@@ -13,13 +13,13 @@ const userSchema = new Schema({
   weight: { type: Number, required: false },
   height: { type: Number, required: false },
   phoneNumber: String,
-  goal: { type: String, required: false },
-  recommendedIntake: [
-    {
-      type: Schema.Types.objectId,
-      ref: "Food"
-    }
-  ]
+  goal: { type: String, required: false }
+  // recommendedIntake: [
+  //   {
+  //     type: Schema.Types.objectId,
+  //     ref: "Food"
+  //   }
+  // ]
 });
 
 //Define schema methods

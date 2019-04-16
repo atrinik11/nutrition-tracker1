@@ -16,8 +16,8 @@ router.get("/login", (req, res) => {
   res.redirect;
 });
 
-router.get("/profile/:user", controllers.getProfile);
-router.post("/signup", controllers.createUser);
-router.post("/signup/:user", controllers.updateUser);
+// router.get("/profile/:user", controllers.getProfile);
+// router.post("/signup", controllers.createUser);
+// router.post("/signup/:user", controllers.updateUser);
 
 module.exports = router;

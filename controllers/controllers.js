@@ -13,7 +13,9 @@ module.exports = {
       });
   },
   createUser: (req, res) => {
+    console.log("User to be saved(controller): ", req);
     const { userName, password } = req.body;
+
     //Adding the validation
     db.User.findOne({ userName: userName }, (err, userMatch) => {
       if (userMatch) {
